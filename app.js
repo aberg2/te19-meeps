@@ -6,11 +6,12 @@ const sassMiddleware = require('node-sass-middleware');
 const app = express();
 const nunjucks = require('nunjucks')
 
+require('dotenv').config();
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const meepsRouter = require('./routes/meeps');
 
-require('dotenv').config();
 
 
 app.use(logger('dev'));
@@ -33,6 +34,5 @@ nunjucks.configure('views', {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/meeps', meepsRouter);
-
 
 module.exports = app;
