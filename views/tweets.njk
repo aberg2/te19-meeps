@@ -1,16 +1,24 @@
 {% extends layout %}
 {% block  content %}
-<main class="container mt-3">
-    <div>
-        <ul class="list-group">
-        {% for tweet in meeps %}
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="d-flex">
-                    <h1>{{tweet.body}}</h1>
+    <main class="container mt-3">
+        <div>
+            <form action="/meeps" method="post">
+                <div class="mb3 d-flex">
+                    <input type="text" name="tweets" id="tweets" value="{{ tweets }}" placeholder="Skriv mannen" required>
+                        <button type="submit" class="btn btn-primary" id="liveAlertBtn">Add task</button>
+                    </div>
+                </form>
+            </div>
+            {% for tweet in meeps %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ tweet.body }}</h5>
+                        <p class="card-text">{{ tweet.body }}</p>
+                        <footer class="blockquote-footer">
+                            <cite title="date">{{ tweet.created_at }}</cite>
+                        </footer>
+                    </div>
                 </div>
-            </li>
-            {% endfor%}
-        </ul>
-    </div>
-</main>
-{% endblock %}  
+            {% endfor %}
+        </main>
+    {% endblock %}
