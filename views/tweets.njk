@@ -1,0 +1,16 @@
+{% extends layout %}
+{% block  content %}
+<main class="container mt-3">
+    <div>
+        <ul class="list-group">
+        {% for tweet in meeps %}
+            <li class="list-group-item d-flex justify-content-between">
+                <div class="d-flex">
+                    <h1>{{tweet.body}}</h1>
+                </div>
+            </li>
+            {% endfor%}
+        </ul>
+    </div>
+</main>
+{% endblock %}  

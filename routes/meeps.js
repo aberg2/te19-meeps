@@ -21,11 +21,10 @@ router.get('/', async (req, res, next) => {
     await pool.promise()
         .query('SELECT * FROM meeps')
         .then(([rows, fields]) => {
-            console.log(rows);
-            res.json({
-                meeps: {
-                    data: rows
-                }
+            res.render('tweets.njk', {
+                meeps: rows,
+                title: 'Bard',
+                layout: 'layout.njk',
             });
         })
         .catch(err => {
