@@ -19,7 +19,7 @@ const router = express.Router();
 /* GET home page. */
 router.get('/', async (req, res, next) => {
     await pool.promise()
-        .query('SELECT * FROM meeps')
+        .query('SELECT * FROM meeps ORDER BY created_at DESC')
         .then(([rows, fields]) => {
             res.render('tweets.njk', {
                 meeps: rows,
