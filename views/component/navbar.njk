@@ -1,0 +1,37 @@
+
+<nav class="navbar navbar-expand-lg shadow-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://www.bluejaycuttables.com/image/cache/data/A-A9926/Blue-Duck-Cuttable-SVG-and-Printable-PNG-File-600x315.png" alt="" width="100" height="50" class="flip d-inline-block align-text-top">
+      
+    </a>
+    <a class="navbar-brand" href="#">Quacker</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Friends</a>
+        </li>
+      </ul>
+     <div>
+              <form action="/meeps" method="post">
+                    <div class="mb3 pt-3 d-flex">
+                       <input type="text" class="form-control" name="tweets" id="tweets" value="{{ tweets }}" placeholder="What's on your mind?" required>
+                        <button type="submit" class="btn btn-primary" id="liveAlertBtn">Quack<svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor" class="bi bi-send-fill" viewBox="-2 0.8 18 18">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+    </div>
+  </div>
+</nav>
