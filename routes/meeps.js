@@ -69,5 +69,10 @@ router.post('/', async (req, res, next) => {
                 layout: 'layout.njk',
             });
           });
-
+          router.get('/friends', function (req, res, next) {
+            res.render('friends.njk', {
+                title: 'Friends',
+                layout: 'layout.njk',
+            });
+          });
 module.exports = router;
