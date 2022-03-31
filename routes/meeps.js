@@ -17,6 +17,7 @@ const router = express.Router();
 */
 
 /* GET home page. */
+
 router.get('/', async (req, res, next) => {
     await pool.promise()
         .query('SELECT * FROM meeps ORDER BY created_at DESC')
@@ -38,21 +39,7 @@ router.get('/', async (req, res, next) => {
 });
 
 
-router.get('/:id', async (req, res, next) => {
 
-    const id = req.params.id;
-    if (isNaN(req.params.id)) {
-        res.status(400).json({
-            tweet: {
-                error: 'Bad request'
-            }
-        });
-
-    }
-    res.json({
-        id: req.params.id
-    })
-});
 router.post('/', async (req, res, next) => {
     // { "tweet": "koda post" }
     const tweets = req.body.tweets;
@@ -73,15 +60,14 @@ router.post('/', async (req, res, next) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).json({
-                tweet: {
-                    error: 'Error getting tweets',
-                },
             });
         });
-
-    // res.json(req.body);
-});
-
+        // res.json(req.body);
+        router.get('/profile', function (req, res, next) {
+            res.render('profile.njk', {
+                title: 'Profile',
+                layout: 'layout.njk',
+            });
+          });
 
 module.exports = router;

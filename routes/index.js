@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 /* GET home page. */
-router.get('/views/', async  function(req, res, next) {
+router.get('/', async  function(req, res, next) {
   let  data = {
     message: 'Tjenare världen!!!!!',
     layout:  'layout.njk',
