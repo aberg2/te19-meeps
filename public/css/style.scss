@@ -2,11 +2,11 @@ body {
   background-color: blue;
   font-family: chaloops, sans-serif;
   font-weight: 400;
-  margin-top: 20px;
   font-style: normal;}
 .flip {
   transform: scaleX(-1);
 }
+
 
   .img-account-profile {
       height: 10rem;
@@ -15,7 +15,7 @@ body {
       border-radius: 50% !important;
   }
   .card {
-      box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+      box-shadow: 0 0.15rem 1.75rem 0;
   }
   .card .card-header {
       font-weight: 500;

@@ -11,6 +11,9 @@
                         <p class="card-text">{{ tweet.body }}</p>
                         <footer class="blockquote-footer">
                             <cite title="date">{{ tweet.created_at }}</cite>
+                            <div id="{{ tweet.id }}" class="content">
+                                <a href="/meeps/{{ tweet.id }}/delete">Delete</a>
+                            </div>
                         </footer>
                     </div>
                 </div>

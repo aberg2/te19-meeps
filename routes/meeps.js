@@ -60,19 +60,28 @@ router.post('/', async (req, res, next) => {
         })
         .catch((err) => {
             console.log(err);
-            });
         });
-        // res.json(req.body);
-        router.get('/profile', function (req, res, next) {
-            res.render('profile.njk', {
-                title: 'Profile',
-                layout: 'layout.njk',
-            });
-          });
-          router.get('/friends', function (req, res, next) {
-            res.render('friends.njk', {
-                title: 'Friends',
-                layout: 'layout.njk',
-            });
-          });
+});
+// res.json(req.body);
+router.get('/profile', function (req, res, next) {
+    res.render('profile.njk', {
+        title: 'Profile',
+        layout: 'layout.njk',
+    });
+});
+router.get('/friends', function (req, res, next) {
+    res.render('friends.njk', {
+        title: 'Friends',
+        layout: 'layout.njk',
+    });
+});
+router.get('/:id/delete', async (req,res,next) => {
+    const id = req.params.id;
+    await pool.promise()
+    .query('DELETE FROM meeps WHERE id = ?', [id])
+    .then((response) => {
+        res.redirect('/meeps');
+    })
+});
+
 module.exports = router;
