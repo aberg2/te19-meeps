@@ -10,7 +10,7 @@ require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const emlabg_meepsRouter = require('./routes/emlabg_meeps');
+const meepsRouter = require('./routes/meeps');
 
 
 
@@ -34,6 +34,6 @@ nunjucks.configure('views', {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/emlabg_meeps', emlabg_meepsRouter);
+app.use('/meeps', meepsRouter);
 
 module.exports = app;
