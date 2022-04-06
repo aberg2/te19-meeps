@@ -4,7 +4,7 @@
             
             <h1><span class="badge ">Quacks</span></h1>
 
-            {% for tweet in emlabg_meeps %}
+            {% for tweet in meeps %}
                 <div class="card shadow mt-3 mx-auto" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{ tweet.body }}</h5>
@@ -12,7 +12,7 @@
                         <footer class="blockquote-footer">
                             <cite title="date">{{ tweet.created_at }}</cite>
                             <div id="{{ tweet.id }}" class="content">
-                                <a href="/emlabg_meeps/{{ tweet.id }}/delete">Delete</a>
+                                <a href="/meeps/{{ tweet.id }}/delete">Delete</a>
                             </div>
                         </footer>
                     </div>
