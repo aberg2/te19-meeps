@@ -3,8 +3,8 @@ const pool = require('../database');
 const router = express.Router();
 
 /*
-    BASE URL /meeps
-    GET / - Get all meeps
+    BASE URL /emlabg_meeps
+    GET / - Get all emlabg_meeps
     POST / - Create a new tweet
     GET /:id - Get a tweet by id
     PUT/:id - Update a tweet by id
@@ -20,10 +20,10 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
     await pool.promise()
-        .query('SELECT * FROM meeps ORDER BY created_at DESC')
+        .query('SELECT * FROM emlabg_meeps ORDER BY created_at DESC')
         .then(([rows, fields]) => {
             res.render('tweets.njk', {
-                meeps: rows,
+                emlabg_meeps: rows,
                 title: 'Bard',
                 layout: 'layout.njk',
             });
@@ -31,8 +31,8 @@ router.get('/', async (req, res, next) => {
         .catch(err => {
             console.log(err);
             res.status(500).json({
-                meeps: {
-                    error: 'Error gettings meeps'
+                emlabg_meeps: {
+                    error: 'Error gettings emlabg_meeps'
                 }
             })
         })
@@ -46,10 +46,10 @@ router.post('/', async (req, res, next) => {
 
     await pool
         .promise()
-        .query('INSERT INTO meeps (body) VALUES (?)', [tweets])
+        .query('INSERT INTO emlabg_meeps (body) VALUES (?)', [tweets])
         .then((response) => {
             if (response[0].affectedRows === 1) {
-                res.redirect('/meeps');
+                res.redirect('/emlabg_meeps');
             } else {
                 res.status(400).json({
                     tweet: {
@@ -78,9 +78,9 @@ router.get('/friends', function (req, res, next) {
 router.get('/:id/delete', async (req,res,next) => {
     const id = req.params.id;
     await pool.promise()
-    .query('DELETE FROM meeps WHERE id = ?', [id])
+    .query('DELETE FROM emlabg_meeps WHERE id = ?', [id])
     .then((response) => {
-        res.redirect('/meeps');
+        res.redirect('/emlabg_meeps');
     })
 });
 
