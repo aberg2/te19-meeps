@@ -3,8 +3,8 @@ const pool = require('../database');
 const router = express.Router();
 
 /*
-    BASE URL /emlabg_meeps
-    GET / - Get all emlabg_meeps
+    BASE URL /meeps
+    GET / - Get all meeps
     POST / - Create a new tweet
     GET /:id - Get a tweet by id
     PUT/:id - Update a tweet by id
@@ -23,7 +23,7 @@ router.get('/', async (req, res, next) => {
         .query('SELECT * FROM emlabg_meeps ORDER BY created_at DESC')
         .then(([rows, fields]) => {
             res.render('tweets.njk', {
-                emlabg_meeps: rows,
+                meeps: rows,
                 title: 'Bard',
                 layout: 'layout.njk',
             });
@@ -31,8 +31,8 @@ router.get('/', async (req, res, next) => {
         .catch(err => {
             console.log(err);
             res.status(500).json({
-                emlabg_meeps: {
-                    error: 'Error gettings emlabg_meeps'
+                meeps: {
+                    error: 'Error gettings meeps'
                 }
             })
         })
@@ -49,7 +49,7 @@ router.post('/', async (req, res, next) => {
         .query('INSERT INTO emlabg_meeps (body) VALUES (?)', [tweets])
         .then((response) => {
             if (response[0].affectedRows === 1) {
-                res.redirect('/emlabg_meeps');
+                res.redirect('/meeps');
             } else {
                 res.status(400).json({
                     tweet: {
@@ -80,7 +80,7 @@ router.get('/:id/delete', async (req,res,next) => {
     await pool.promise()
     .query('DELETE FROM emlabg_meeps WHERE id = ?', [id])
     .then((response) => {
-        res.redirect('/emlabg_meeps');
+        res.redirect('/meeps');
     })
 });
 
