@@ -32,7 +32,7 @@ router.get('/', async (req, res, next) => {
             console.log(err);
             res.status(500).json({
                 meeps: {
-                    error: 'Error gettings meeps'
+                    error: 'Error gettings meepss'
                 }
             })
         })
