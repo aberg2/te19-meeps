@@ -83,5 +83,24 @@ router.get('/:id/delete', async (req,res,next) => {
         res.redirect('/meeps');
     })
 });
+router.get('/api', async (req, res, next) => {
+    await pool.promise()
+        .query('SELECT * FROM emlabg_meeps ORDER BY created_at DESC')
+        .then(([rows, fields]) => {
+            res.json({
+                meeps: {
+                    data: rows
+                }
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                meeps: {
+                    error: 'Error getting meeps'
+                }
+            })
+        });
+});
 
 module.exports = router;
