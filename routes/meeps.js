@@ -88,9 +88,7 @@ router.get('/api', async (req, res, next) => {
         .query('SELECT * FROM emlabg_meeps ORDER BY created_at DESC')
         .then(([rows, fields]) => {
             res.json({
-                meeps: {
-                    data: rows
-                }
+                meeps: rows,
             });
         })
         .catch(err => {
