@@ -85,7 +85,7 @@ router.get('/:id/delete', async (req,res,next) => {
 });
 router.get('/api', async (req, res, next) => {
     await pool.promise()
-        .query('SELECT * FROM emlabg_meeps ORDER BY created_at DESC')
+        .query('SELECT * FROM emlabg_top ORDER BY created_at DESC')
         .then(([rows, fields]) => {
             res.json({
                 meeps: rows,
